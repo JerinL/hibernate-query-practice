@@ -14,6 +14,10 @@ public interface DepartmentRepo extends JpaRepository<Department,String> {
 //    @Query("SELECT p FROM Department p LEFT JOIN FETCH p.listOfEmployees")
 //    List<Department> findWithoutNPlusOne();
 
+    //get all user by another table role name 
+    //     @Query("SELECT u FROM User u JOIN u.roles r WHERE r.roleName = :roleName")
+    // List<User> findAllStudents(@Param("roleName") RoleEnum roleName);
+
     @Query("SELECT d FROM Department d LEFT JOIN FETCH d.employees")
     List<Department> findWithoutNPlusOne();
 
